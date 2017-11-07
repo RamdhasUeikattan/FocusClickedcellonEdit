@@ -1,71 +1,3 @@
-// import { Component, OnInit, ViewChild } from '@angular/core';
-// import { ItemModel } from '@syncfusion/ej2-navigations';
-// import { gridData1 } from './data';
-// import { ToolbarItems, IEditCell, Column, SaveEventArgs } from '@syncfusion/ej2-ng-grids';
-// import { DropDownList } from '@syncfusion/ej2-dropdowns';
-// import { DataManager, Query } from '@syncfusion/ej2-data';
-
-// @Component({
-//     selector: 'my-app',
-//     template: ` <form><ej-grid #grid [dataSource]='data' [allowFiltering]='true' [editSettings]='editSetting' 
-//     (dataBound)='dataBoundHandler()' [toolbar]='toolbarItems' (toolbarClick)='tClick($event)'
-//     (actionBegin)='actionBeginHandler($event)' (actionComplete)='actionCompleteHandler($event)'>
-//                 <e-columns>
-//                 <e-column field='OrderID' headerText='Order ID' width='120' textAlign="right" isPrimaryKey='true' [validationRules]='validationRules'></e-column>
-//                 <e-column field='CustomerID' headerText='Customer ID' width='120' [validationRules]='validationRules'></e-column>
-//                 <e-column field='Freight' headerText='Freight' width='120' format='C2' textAlign="right" editType='numericedit' [validationRules]='validationRules'></e-column>
-//                 <e-column field='ShipName' headerText='Ship Name' width='170'></e-column>
-//                 <e-column field='ShipCountry' headerText='Ship Country' width='150' editType='dropdownedit'></e-column>
-//                 </e-columns>
-//                 </ej-grid> </form>
-
-//                 <ng-template #template>
-//                   <span>DataCount - {{dataCount}}</span>
-//                 </ng-template>
-//                 <ng-template #template1>
-//                 <button type='button'>Print</button>
-//               </ng-template>`
-// })
-// export class AppComponent implements OnInit {
-
-//     public data: Object[];
-
-//     @ViewChild('grid')
-//     public grid;
-//     public editSetting: Object;
-//     public validationRules;
-
-//     public dataCount;
-//     public focusindex;
-
-//     ngOnInit(): void {
-//         this.data = gridData1;
-//         this.validationRules = { required: true };
-//         this.editSetting = { allowEditing: true, allowDeleting: true, allowAdding: true };
-//     }
-
-//     // Find the index of cliked td.
-//     actionBeginHandler(args) {
-//         if (args.requestType === 'beginEdit') {
-//             this.focusindex = (<any>document.activeElement).cellIndex;
-//         }
-//     }
-//     // focusing the clicked cell
-//     actionCompleteHandler(args) {
-//         if (args.requestType === 'beginEdit') {
-//             // you can use focus or select
-//             // * focus - focusing the clicked cell.
-//             // * select - focusing the clicked cell and select the content.
-//             args.row.querySelector('#' + this.grid.element.id + this.grid.getVisibleColumns()[this.focusindex].field).select();
-//         }
-//     }
-
-//     // dataBoundHandler() {
-//     //     // update data count
-//     //     this.dataCount = this.grid.currentViewData.length;
-//     // }
-// }
-
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IEditCell, Column } from '@syncfusion/ej2-ng-grids';
 import { DropDownList } from '@syncfusion/ej2-dropdowns';
@@ -121,6 +53,8 @@ export class AppComponent implements OnInit {
 
 
     // destroy the syncfusion component using `destroy` method.
+    // all Syncfusion component have destroy method.
+    // here grid component has destroy on the button click event.
     onClick() {
         this.grid.destroy();
     }
